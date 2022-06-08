@@ -1,0 +1,66 @@
+#:kivy 2.0
+<MyBoxLayout>:
+    padding: 10
+    canvas.before:
+        Color:
+            rgba: 0.5, 0.5, 0.6, 0.5
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    orientation: "vertical"
+    BoxLayout:
+        size_hint_y: 0.3
+        center_x: self.parent.center_x
+        center_y: self.parent.center_y
+        Image:
+            id: my_image2
+            source: "img/TraduApp2.png"
+    BoxLayout:
+        size_hint_y: 0.1
+    BoxLayout:
+        size_hint_y: 0.3
+        size_hint_x: 0.9
+        spacing: 80
+        BoxLayout:
+            Label:
+                font_size: 20
+                text: "Digite o texto para ser \ntraduzido abaixo!"
+        Spinner:
+            size_hint_x: 0.6
+            id: sp_id2
+            font_size: 20
+            border: (0, 0, 0, 0)
+            background_normal: 'img/sp1.png'
+            background_down: 'img/sp3.png'
+            text: "pt"
+            values: ["en", "pt", "es"]
+    BoxLayout:
+        size_hint_y: 0.1
+    BoxLayout:
+        size_hint_y: 2
+        spacing: 5
+        TextInput:
+            id: tin1
+            font_size: 18
+            multiline: True
+            cursor_width: 1
+            padding_x:[10, 0]
+        TextInput:
+            id: tin2
+            font_size: 18
+            multiline: True
+            padding_x:[10, 0]
+    BoxLayout:
+        size_hint: 0.1, 0.2
+        pos_hint: {"center_x": 0.5}
+        Button:
+            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+            background_color: 0,0,0,0
+            on_press: root.btn_on()
+            on_release: root.btn_off(), root.tradutor()
+            Image:
+                id: my_image
+                source: "img/btn2.png"
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+    
